@@ -44,22 +44,25 @@
         }
         nav {
             background-color: #333;
-            padding: 10px;
+          padding: 10px; 
         }
-        nav a {
-            color: white;
+       nav a {
+            display: inline-block; 
+            color:rgb(40, 16, 16);;
             text-decoration: none;
-            margin: 0 10px;
-            padding: 5px 10px;
             border-radius: 5px;
+            margin: 10px 10px; 
+            padding: 5px 10px; 
            transition: transform 0.3s ease;  /* Smooth zoom transition */
-        }
+            
+        } 
+      
         nav a:hover {
             background-color: #555;
             transform: scale(1.2); 
         }
+        
         .zoom-image {
-            width: 200px; /* Adjust as needed */
             transition: transform 0.3s ease; /* Smooth zoom transition */
         }
         .zoom-image:hover {
@@ -70,24 +73,54 @@
         } 
         .col-md-4:hover{
             transform: scale(1.1); /* Scales the image to 1.2 times its original size */
-        } </style>
+        }
+        .menu {
+            background-color:#ffc107;
+            border-radius: 10px;
+      padding: 10px;
+      float:right;
+    } 
+    
+    a{
+        transition: transform 0.3s ease;  /* Smooth zoom transition */
+    }
+    a:hover {
+            background-color: #555;
+            transform: scale(1.2); 
+        }
+        /* Adjust width for mobile devices (screens smaller than 768px) */
+@media (max-width: 1000px) {
+   
+    .container p{
+        font-size: 12px;
+    }
+    .menu a{
+        font-size: 10px;
+    } 
+} 
+
+         </style>
 </head>
 <body style="background-color: #ffc107;">
     <!-- Navbar -->
-   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#ffc107">
+   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#ffc107;border-radius: 10px">
         <div class="container">
             <div class="container"><br><br>
-                <img src="oilflake.png" class="zoom-image" style="float:left;margin: right 10px;" width="250" height="150" />
-                <h1 style="color: rgb(40, 16, 16); size:10px; text-align: center;">Welcome to SV Petro Products.</h1>
-                <p style="color: rgb(40, 16, 16); size:5px; text-align: center;"> Your trusted partner in oil and lubrication solutions. </p>
-                <br><br>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#aboutus" style="color: rgb(40, 16, 16);"><b>About</b></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#products" style="color: rgb(40, 16, 16);"><b>Products</b></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact" style="color: rgb(40, 16, 16);"><b>Contact</b></a></li>
+                <img src="oilflake.png" class="zoom-image" style="float:left;margin: right 10px;" width="180" height="100" />
+                <h2 style="color: rgb(40, 16, 16); text-align: center;">Welcome to SV Petro Products.</h2> 
+              <marquee> <p style="color: rgb(40, 16, 16); size:5px; text-align: center;"> Your trusted partner in oil and lubrication solutions. </p></marquee>
+                <div class="menu">
+                   <b> <a href="#aboutus">About</a>
+                    <a href="#products">Products</a>
+                    <a href="#contact">Contact</a> </b>
+                  </div>
+              <!--  <div class="container1" id="navbarNav" style="float:right;width:500px;height:60px;border:2px solid black;">
+                    <ul class="navbar-nav ms-auto1">
+                        <li class="nav-item1"><a class="nav-link1" href="#aboutus" style="float:right;color: rgb(40, 16, 16);border: 2px solid black"><b>About</b></a></li>
+                        <li class="nav-item1"><a class="nav-link1" href="#products" style="float:right;color: rgb(40, 16, 16);border: 2px solid black"><b>Products</b></a></li>
+                        <li class="nav-item1"><a class="nav-link1" href="#contact" style="float:right;color: rgb(40, 16, 16);border: 2px solid black"><b>Contact</b></a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
             </div>
         </nav>  
@@ -95,7 +128,7 @@
         <div class="container" style="color:rgb(40, 16, 16);background:#ffc107;">
             <br>
             <br>
-            <img src="VEE_GOLD.jpg"  class="zoom-image" style="float:right; height: 250px;width:350px;border-radius: 20px;box-shadow: 0 4px 8px rgb(40, 16, 16)">
+            <img src="VEE_GOLD.jpg"  class="zoom-image" style="float:right;border-radius: 20px;box-shadow: 0 4px 8px rgb(40, 16, 16);" width="300" height="200">
             <p style="text-align: text-justify;">  <br> <br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Since 2016, SV Petro has been dedicated to delivering reliable, high-quality fuel services through our VEE Gold brand, ensuring you stay on the move.
                 With  Decade of experience in the industry, we offer a wide range of products, including premium high quality Engine Oil,Gear Oil and
                 Tractor Transmission oil at competitive prices. Our Brand VEE Gold is designed to ensure a fast, safe and efficient
@@ -111,11 +144,11 @@
         <div class="container">
             <br><br>
             <div class="row">
-                <div class="col-md-4" style="height: 340px;width:380px;" onclick="openNewWindow(`15W-40 Multi Grade Engine Oil 1L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
+                <div class="col-md-4 product-div" id="xxx" style="height: 340px;width:380px;" onclick="openNewWindow(`15W-40 Multi Grade Engine Oil 1L`)">
+                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16);">
                         <img src="images/1 ltr/1.1- 15W40 MGEO.jpg" class="card-img-top" alt="Product">
                         <div class="card-body">
-                            <center><h6 class="card-title" style="color:rgb(40, 16, 16)">15W-40 Multi Grade Engine Oil 1L</h6></center>
+                            <h6 class="card-title" style="color:rgb(40, 16, 16);">15W-40 Multi Grade Engine Oil 1L</h6>
                            
                         </div>
                     </div>

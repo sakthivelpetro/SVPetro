@@ -4,461 +4,685 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SV Petro Products</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Add Swiper.js -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <style>
-        .product-card img {
-            height: 250px;
-            object-fit: contain;
-           
-        } 
-        .product-card1 {
-                        border: none; 
-                        border-radius: 20px;
-                        height:300px;
-                        width:350px;
-                        display: flex;
-                        margin: 50px;
-            flex-wrap: wrap; /* Allows wrapping to the next row */
-          /*  gap: 20px; */ /* Space between cards */
-                    }
-         .card-body1 {
-                        background-color: white;
-                        height:250px;
-                    }
-         .card-text1 {
-                        margin-top: 10px;
-                        padding-left: 20px;
-                    }
-                   
-        
-        .footer {
-            color: rgb(40, 16, 16);
-            background: #ffc107;
-            padding: 20px 0;
-            text-align: center;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
-        .footer a {
-            color: rgb(40, 16, 16);
-            text-decoration: none;
-        }
-        nav {
-            background-color: #333;
-          padding: 10px; 
-        }
-       nav a {
-            display: inline-block; 
-            color:rgb(40, 16, 16);;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 10px 10px; 
-            padding: 5px 10px; 
-           transition: transform 0.3s ease;  /* Smooth zoom transition */
+
+        body {
+           background:white;
             
-        } 
-      
-        nav a:hover {
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: #fcecb4;
+            color: #555;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 30px;
+            font-weight: bold;
+
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            position: relative;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 16px;
+        }
+
+        .nav-links a {
+            color: #555;
+            text-decoration: none;
+            padding: 12px 16px;
+            display: block;
+            transition: 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            background-color: #fcecb4;
+            border-radius: 5px;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: #fcecb4;
+            min-width: 180px;
+            top: 45px;
+            left: 0;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            transform: translateY(10px);
+        }
+
+        .dropdown-menu a {
+            padding: 10px 15px;
+            color: #555;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #fcecb4;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger div {
             background-color: #555;
-            transform: scale(1.2); 
+            height: 4px;
+            width: 30px;
+            margin: 5px;
+            transition: all 0.3s ease-in-out;
         }
-        
-        .zoom-image {
-            transition: transform 0.3s ease; /* Smooth zoom transition */
+
+        /* Hamburger Active State */
+        .hamburger.active div:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
         }
-        .zoom-image:hover {
-            transform: scale(1.1); /* Scales the image to 1.2 times its original size */
-        }  
-        .col-md-4 {
-            transition: transform 0.3s ease; /* Smooth zoom transition */
-        } 
-        .col-md-4:hover{
-            transform: scale(1.1); /* Scales the image to 1.2 times its original size */
+
+        .hamburger.active div:nth-child(2) {
+            opacity: 0;
         }
-        .menu {
-            background-color:#ffc107;
+
+        .hamburger.active div:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .lubimg{
+            height:300px;
+            width:400px;
+            float:left;
+            padding-left: 60px;
+        }
+        .lubparagraph{
+            align-self: center;
+            font-size:30px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-left:30%;
+            padding-top:10%;
+            color:#555;
+        }
+        .swipper-wrapper{
+            height:200px;
+            width:100px;
+            margin-left: 100px;
+        }
+
+        /* Swiper Navigation Button Styles */
+        .swiper-button-next, .swiper-button-prev {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fcecb4;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+       /* Custom Arrow Icon */
+       .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 18px;
+            color: #555;
+            content: '';
+        }
+
+        .swiper-button-next::after {
+            content: '→'; /* Right arrow */
+            font-size:30px;
+        }
+
+        .swiper-button-prev::after {
+            content: '←'; /* Left arrow */
+            font-size:30px;
+        }
+
+        /* Hover and Active State */
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background-color: #fcecb4; /* Darker peach */
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .swiper-button-next:active, .swiper-button-prev:active {
+            background-color: #fcecb4; /* Even darker peach */
+        }
+        /* Positioning the buttons */
+        .swiper-button-next {
+            top: 40%;
+            right: 20px;
+        }
+
+        .swiper-button-prev {
+            top: 40%;
+            left: 20px;
+        }
+        .container {
+            position: relative;
+            width: 75%;
+            overflow: hidden;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-      padding: 10px;
-      float:right;
-    } 
-    
-    a{
-        transition: transform 0.3s ease;  /* Smooth zoom transition */
-    }
-    a:hover {
-            background-color: #555;
-            transform: scale(1.2); 
         }
-        /* Adjust width for mobile devices (screens smaller than 768px) */
-@media (max-width: 1000px) {
-   
-    .container p{
-        font-size: 12px;
-    }
-    .menu a{
-        font-size: 10px;
-    } 
-} 
 
-         </style>
+        .scroll-wrapper {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+
+        .scroll-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .item {
+            min-width: 200px;
+            height: 340px;
+            margin: 10px; 
+            background-color: #fcecb4;
+            display: flex;
+            justify-content: center;
+           /* align-items: center; */
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0 10px 10px #fcecb4
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fcecb4;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 24px;
+            border-radius: 50%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: 0.3s ease;
+        }
+
+        .arrow:hover {
+            background-color: #fcecb4;
+        }
+
+        .left-arrow {
+            left: -40px;
+        }
+
+        .right-arrow {
+            right: -40px;
+        }
+
+        .product-container {
+            display: grid;
+            width: 800px;
+            margin-left: 400px;
+            grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+            gap: 20px; /* Space between items */
+            grid-template-rows: auto; /* Adjust rows dynamically */
+            justify-content: center;
+            padding: 2px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            padding: 5px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 4px 8px #fcecb4;
+            transition: transform 0.3s ease;
+        }
+        .product-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .product-card:hover {
+            transform: scale(1.1); /* Scales the image to 1.2 times its original size */
+        } 
+
+        .product-card h4 {
+            margin: 10px 0;
+            font-style: italic;
+            color:#555;
+            text-align: center;
+            height: 50px;
+            background-color: #fcecb4;
+            padding-top: 5px;
+        }
+
+        .product-card p {
+            color: gray;
+            font-size: 14px;
+        }
+
+        .about{
+            font-size:18px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .about-img{
+            margin-left:50px;
+            margin-bottom:20px
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+              /*  background: #fcecb4; */
+                text-align: center;
+                padding: 10px 0;
+                border-radius: 0 0 10px 10px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 30%;
+                height:35px;
+                position: relative;
+                z-index: 1000;
+                align-self:self-end;
+                background: #fcecb4;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+                width: 100%;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+            .lubimg{
+            height:180px;
+            width:180px;
+            align-items: center;
+            margin-top: 25px;
+        }
+        .lubparagraph{
+            align-self: center;
+            font-size:15px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-left:15%;
+            padding-top:15%; 
+            color:#555;
+        }
+        .swiper-button-next::after {
+            content: '→'; /* Right arrow */
+            font-size:15px;
+        }
+
+        .swiper-button-prev::after {
+            content: '←'; /* Left arrow */
+            font-size:15px;
+        }
+
+        .swiper-button-next {
+            top: 40%;
+            right: 10px;
+        }
+
+        .swiper-button-prev {
+            top: 40%;
+            left: 10px;
+        }
+
+        .product-container {
+            width: 250px;
+            margin-left: 100px;
+            grid-template-columns: repeat(2, 1fr); /* 3 Columns */
+            gap: 10px; /* Space between items */
+            padding: 2px;
+        }
+
+        .product-card {
+           border-radius: 5px;
+            padding: 3px;
+            width: 120px;
+            box-shadow: 0 4px 8px #fcecb4;
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover{
+            transform: scale(1.1); /* Scales the image to 1.2 times its original size */
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .product-card h4 {
+            margin-left: 10px 2px;;
+            color:#555;
+            text-align: center;
+            height: 35px;
+            background-color: #fcecb4;
+            font-size: 10px;
+        }
+        .about{
+            font-size:12px
+        }
+        .about-img{
+            width:230px;
+            height:130px;
+            margin-left:30px;
+            margin-bottom:10px
+        }
+        .head{
+            font-size: 10px;
+        }
+        }
+    </style>
 </head>
-<body style="background-color: #ffc107;">
-    <!-- Navbar -->
-   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#ffc107;border-radius: 10px">
-        <div class="container">
-            <div class="container"><br><br>
-                <img src="oilflake.png" class="zoom-image" style="float:left;margin: right 10px;" width="180" height="100" />
-                <h2 style="color: rgb(40, 16, 16); text-align: center;">Welcome to SV Petro Products.</h2> 
-              <marquee> <p style="color: rgb(40, 16, 16); size:5px; text-align: center;"> Your trusted partner in oil and lubrication solutions. </p></marquee>
-                <div class="menu">
-                   <b> <a href="#aboutus">About</a>
-                    <a href="#products">Products</a>
-                    <a href="#contact">Contact</a> </b>
-                  </div>
-              <!--  <div class="container1" id="navbarNav" style="float:right;width:500px;height:60px;border:2px solid black;">
-                    <ul class="navbar-nav ms-auto1">
-                        <li class="nav-item1"><a class="nav-link1" href="#aboutus" style="float:right;color: rgb(40, 16, 16);border: 2px solid black"><b>About</b></a></li>
-                        <li class="nav-item1"><a class="nav-link1" href="#products" style="float:right;color: rgb(40, 16, 16);border: 2px solid black"><b>Products</b></a></li>
-                        <li class="nav-item1"><a class="nav-link1" href="#contact" style="float:right;color: rgb(40, 16, 16);border: 2px solid black"><b>Contact</b></a></li>
-                    </ul>
-                </div> -->
-            </div>
-            </div>
-        </nav>  
-    <section id="aboutus">
-        <div class="container" style="color:rgb(40, 16, 16);background:#ffc107;">
-            <br>
-            <img src="VEE_GOLD.jpg"  class="zoom-image" style="float:right;border-radius: 20px;box-shadow: 0 4px 8px rgb(40, 16, 16);margin-left:50px;margin-bottom:20px" width="300" height="200">
-            <p style="text-align: text-justify;">  <br> <br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Since 2016, SV Petro has been dedicated to delivering reliable, high-quality fuel services through our VEE Gold brand, ensuring you stay on the move.
-                With  Decade of experience in the industry, we offer a wide range of products, including premium high quality Engine Oil,Gear Oil and
-                Tractor Transmission oil at competitive prices. Our Brand VEE Gold is designed to ensure a fast, safe and efficient
-                experience for all our customers. In addition to fueling services, we also provide a variety of vehicle store items.
-                Our mission is to offer not just fuel, but also excellent customer service, making each visit a pleasant and hassle-free experience.
-                Whether you’re on the road for work or leisure,Our SV Petro Shop is here to serve your fueling needs with convenience, speed, and care.</p>
+<body>
+
+    <nav class="navbar">
+        <div class="logo"><img src="old/title1.png" width="150" height="80"></img></div>
+        <div class="logo" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">SV Petro Products</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-           
-    </section> 
-    
-    <!-- Featured Products -->
- <section id="products" class="py-5">
+        <ul class="nav-links">
+            <li><a href="#product"><b>Product </b></a></li>
+            <li><a href="#about"><b>About</b></a></li>
+            <li><a href="#contact"><b>Contact</b></a></li>
+        </ul>
+    </nav>
+    <section id="slide">
+    <div class="swiper-container" style="background-image: url('background/background.jpg');overflow-x: hidden;">
+        <div class="swiper-wrapper" style="align-items: center;">
+            <div class="swiper-slide"><img class="lubimg" src="Lubricants/Oil.jpg" alt="Image 1">
+            <p class="lubparagraph"> "Your trusted partner in oil and lubrication solutions." </p></div> 
+            <div class="swiper-slide"> <img class="lubimg" src="Lubricants/lubricant1.1.jpg" alt="Image 2"> 
+                <p class="lubparagraph">"Fuel may power the engine, but lubrication keeps it alive." </p></div>
+            <div class="swiper-slide"><img class="lubimg" src="Lubricants/Lubricant2.png" alt="Image 3">
+            <p class="lubparagraph">"Grease not only smooths the way—it keeps the world moving."</p></div>
+            <div class="swiper-slide"><img class="lubimg" src="Lubricants/lubricant3.png" alt="Image 4">
+                <p class="lubparagraph">"The right lubricant in the right place makes all the difference <br> between friction and efficiency." </p></div>
+            <div class="swiper-slide"><img class="lubimg" src="Lubricants/lubricant4.png" alt="Image 5">
+                <p class="lubparagraph">"Lubrication is not just about reducing friction; it's about <br> increasing efficiency and longevity." </p></div>
+            <div class="swiper-slide"><img class="lubimg" src="Lubricants/lubricant5.5.png" alt="Image 6">
+                <p class="lubparagraph">"Oil and grease may be messy, but they are the silent heroes <br> of every working engine." </p></div>
+            <div class="swiper-slide"><img class="lubimg" src="Lubricants/lubricant6.png" alt="Image 7">
+                <p class="lubparagraph">"A well-lubricated engine is a happy engine."</p></div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div><br><br><br>
+    </section>
+    <section id="sell">
+ <div><h6 class="head" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 25px;color: #555;margin-left:40%;">What We Sell</h6></div>
+    <br><br>
+   <center> 
         <div class="container">
-            <br>
-            <div class="row">
-                <div class="col-md-4 product-div" id="xxx" style="height: 340px;width:380px;" onclick="openNewWindow(`15W-40 Multi Grade Engine Oil 1L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16);">
-                        <img src="images/1 ltr/1.1- 15W40 MGEO.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <h6 class="card-title" style="color:rgb(40, 16, 16);">15W-40 Multi Grade Engine Oil 1L</h6>
-                           
+            <button class="arrow left-arrow" onclick="scrollDivs(-1)">&#8592;</button>
+            <div class="scroll-wrapper" id="scrollContainer">
+                <div class="item">
+                    <div class="product-img" style="height: 150px;width:200px;">
+                        <img src="sell/Engine Oil.png" class="card-img-top" alt="Product" style="height: 150px;width:200px;background-color:white;">
+                        <div class="card-body" style="height: 50px;width:200px;align-items: center;">
+                            <h5 class="card-title" style="color:#555;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Engine Oil</h5><br>
+                            <p class="card-paragraph" style="text-align: justify;font-weight: normal;font-style: italic;font-size:12px;color:#555;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Reduces wear and tear,extending your engine's life.<br>
+                               Helps your car less fuel,Saving your money.<br> 
+                                   Performs well in hot and cold weather.<br>
+                                Prevents sludge buildup,keeping your engine running smoothly.<br></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`20W-40 Multi Grade Engine Oil 1L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/1 ltr/1.1- 20W40 MGEO.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                           <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">20W-40 Multi Grade Engine Oil 1L</h6> </center>
-                           
+                <div class="item">
+                    <div class="product-img" style="height: 150px;width:200px;">
+                        <img src="sell/Gearoil.png" class="card-img-top" alt="Product" style="height: 150px;width:200px;background-color:white;">
+                        <div class="card-body" style="height: 50px;width:200px;align-items: center;">
+                            <h5 class="card-title" style="color:#555;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Gear Oil</h5><br>
+                            <p class="card-paragraph" style="text-align: justify;font-weight: normal;font-style: italic; font-size:12px;color:#555;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Reduces noise and ensures smooth shifting.<br>
+                            Prevents metal-to-metal contact and wear. <br>
+                        Performs well in high temperatures and under heavy loads. <br>
+                         Prevents rust and damage,ensuring long-term durability.<br></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`4T Plus 4 Stroke Engine Oil 20W-40 1L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/1 ltr/1.1- 20W40 4SEO.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                           <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">4T Plus 4 Stroke Engine Oil 20W-40 1L</h6></center>
-    
+                <div class="item">
+                    <div class="product-img" style="height: 150px;width:200px;">
+                        <img src="sell/5.1- ATF.jpg" class="card-img-top" alt="Product" style="height: 150px;width:200px;background-color:white;">
+                        <div class="card-body" style="height: 50px;width:200px;align-items: center;">
+                            <h6 class="card-title" style="color:#555;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Automatic Transmission Fluid</h6><br>
+                            <p class="card-paragraph" style="text-align: justify;font-weight: normal;font-style: italic; font-size:12px;color:#555;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> 
+                                Reduces gear hesitation and improves response time. <br>
+                                Dissipates heat and ptotects against extreme temperatures. <br>
+                                protects against wear,sludge and deposits. <br>
+                                Optimized lubrication helps improve fuel economy. <br>
+                            </p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`80W-90 Gear Oil GL-4  1L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/1 ltr/1.1- 80W90 Gear.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                          <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">80W-90 Gear Oil GL-4  1L</h6> </center>
+                <div class="item">
+                    <div class="product-img" style="height: 150px;width:200px;">
+                        <img src="sell/5.1- Hydraulic oil.jpg" class="card-img-top" alt="Product" style="height: 150px;width:200px;background-color:white;">
+                        <div class="card-body" style="height: 50px;width:200px;align-items: center;">
+                            <h5 class="card-title" style="color:#555;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Hydraulic Oil</h5><br>
+                            <p class="card-paragraph" style="text-align: justify;font-weight: normal;font-style: italic;font-size:12px;color:#555;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                                Ensures reliable power transfer with minimal energy loss. <br>
+                                Reduces metal-to-metal contact,extending pump and valve life. <br>
+                                Performs well in both high and low temperatures. <br>
+                                Prevents system damage from moisture and contaminants. <br> 
+                            </p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`90 GL4 Gear Oil 1L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/1 ltr/1.1- 90GL4 Gear.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                          <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">90 GL4 Gear Oil 1L</h6> </center>
-                            
+                <div class="item">
+                    <div class="product-img" style="height: 150px;width:200px;">
+                        <img src="sell/5.1- Transformer oil.jpg" class="card-img-top" alt="Product" style="height: 150px;width:200px;background-color:white;">
+                        <div class="card-body" style="height: 50px;width:200px;align-items: center;">
+                            <h5 class="card-title" style="color:#555;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Transformer Oil</h5><br>
+                            <p class="card-paragraph" style="text-align: justify;font-weight: normal;font-style: italic;font-size:12px;color:#555;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                                Prevents electrical breakdown and ensures reliable performance. <br>
+                                Dissipates heat efficiently,preventing transformer damage. <br>
+                                Ensures a longer oil life and reduces maintenance costs. <br>
+                                Prevents rusting andextends the lifespan of electrical components. <br>
+                                Biogradable and non-toxic options for safer environmental impact.<br>
+                            </p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`140 GL4 Gear Oil 1L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/1 ltr/1.1- 140 Gear.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                           <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">140 GL4 Gear Oil 1L</h6> </center>
+                <div class="item">
+                    <div class="product-img" style="height: 150px;width:200px;">
+                        <img src="sell/UTTO.png" class="card-img-top" alt="Product" style="height: 150px;width:200px;background-color: white;">
+                        <div class="card-body" style="height: 50px;width:200px;align-items: center;">
+                            <h5 class="card-title" style="color:#555;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">UTTO Wet Break Oil</h5><br>
+                            <p class="card-paragraph" style="text-align: justify;font-weight: normal;font-style: italic;font-size:12px;color:#555;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                                Reduces friction and ensures smooth shiftin in gearboxes.<br>
+                                Prevents brake chatter and extends brake life. <br>
+                                Improves hrdraulic response and protects against pump wear. <br>
+                                Prevents rust,sludge and deposits in transmissions and hydraulics.<br>
+                                Compatible with transmissions,hydraulics,wetbrakes and differentials in tractors and machinery.
+                            </p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`WetBrake UTTO OIB 1L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/1 ltr/1.1- UTTO.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                           <center><h6 class="card-title" style="color:rgb(40, 16, 16)">WetBrake UTTO OIB 1L</h6> </center>
+                <div class="item">
+                    <div class="product-img" style="height: 150px;width:200px;">
+                        <img src="sell/B- AP3 Grease 500g,1kg,5kg.jpg" class="card-img-top" alt="Product" style="height:150px;width:200px;background-color: white;">
+                        <div class="card-body" style="height: 50px;width:200px;align-items: center;">
+                            <h5 class="card-title" style="color:#555;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Grease</h5><br>
+                            <p class="card-paragraph" style="text-align: justify;font-weight: normal;font-style: italic;font-size:12px;color:#555;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                                Reduces friction and wear,ensuring smooth operation.<br>
+                                Protects metal parts from rust,even in wet conditions. <br>
+                                Performs well under heavy loads and high temperatures. <br>
+                                Extends equipment life and reduces the need for frequent lubrication. <br>
+                                Available in tubes,buckets or catridges for convenience.
+                            </p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`15W-40 Multigrade Engine Oil 5L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/5 ltr/5.1- 15W40 MGEO.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                           <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">15W-40 Multigrade Engine Oil 5L</h6> </center>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`20W-40 Multigrade Engine Oil 5L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/5 ltr/5.1- 20W40 MGEO.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                           <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">20W-40 Multigrade Engine Oil 5L</h6> </center>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`SAE 90 Gear Oil 5L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/5 ltr/5.1- 90 Gear.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">SAE 90 Gear Oil 5L</h6> </center>
-                           </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`SAE 140 Gear Oil 5L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/5 ltr/5.1- 140 Gear.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                           <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">SAE 140 Gear Oil 5L</h6> </center>
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`Auto Transmission Fluid 5L`)">
-                    <div class="card product-card"style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/5 ltr/5.1- ATF.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">Auto Transmission Fluid 5L</h6> </center>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`Hydraulic Oil 5L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/5 ltr/5.1- Hydraulic oil.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">Hydraulic Oil 5L</h6> </center>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`Master 20W-40 Multigrade Engine Oil 5L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/5 ltr/5.1-20W40 MGEO Master.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">Master 20W-40 Multigrade Engine Oil 5L</h6> </center>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`Transformer Oil 5L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/5 ltr/5.1- Transformer oil.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                           <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">Transformer Oil 5L</h6> </center>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`UTTO WET BRAKE Oil 5L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/5 ltr/5.1- UTTO.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">UTTO WET BRAKE Oil 5L</h6> </center>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`2T 2 Stroke Premium oil 20L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/Buckets/B- 2T 2Stroke.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">2T 2 Stroke Premium oil 20L</h6> </center>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`SAE 20W-40 High Quality Engine Oil 10L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/Buckets/B- 20W-40 EO.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">SAE 20W-40 High Quality Engine Oil 10L</h6> </center>
-                          
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`Gear Oil GL-4 90 20L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/Buckets/B- Gear Oil 90 20Ltr.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                           <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">Gear Oil GL-4 90 20L</h6> </center>
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`Gear Oil GL-4 140 20L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/Buckets/B- Gear Oil 140 20Ltr.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">Gear Oil GL-4 140 20L</h6> </center>
-                          
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`Gear Oil GL-4 320 20L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/Buckets/B- Gear Oil 320 20ltr.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">Gear Oil GL-4 320 20L</h6> </center>
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`Hydraulic Oil AW-32 20L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/Buckets/B- Hydraulic 32.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                           <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">Hydraulic Oil AW-32 20L</h6> </center>
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`Hydraulic Oil AW-46 20L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/Buckets/B- Hydraulic 46.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">Hydraulic Oil AW-46 20L</h6> </center>
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`Hydraulic Oil AW-68 20L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/Buckets/B- Hydraulic 68.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">Hydraulic Oil AW-68 20L</h6> </center>
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`UTTO Wet Break Oil 20L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/Buckets/B- Wed Break 20 Ltr.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                           <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">UTTO Wet Break Oil 20L</h6> </center>
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`SAE 5W-30 High Quality Engine Oil 55L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/Buckets/B- 5W30 EO.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                           <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">SAE 5W-30 High Quality Engine Oil 55L</h6> </center>
-                           
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`SAE 15W-40 High Quality Engine Oil 55L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/Buckets/B-15W40 EO.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">SAE 15W-40 High Quality Engine Oil 55L</h6> </center>
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`SAE 20W-40 High Quality Engine Oil 55L`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/Buckets/B-20W40 55l 4T PLUS.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">SAE 20W-40 High Quality Engine Oil 55L</h6> </center>
-                          
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4" style="height: 340px;width:380px" onclick="openNewWindow(`AP3 All purpose Grease 500g,1Kg,5Kg,18Kg`)">
-                    <div class="card product-card" style="box-shadow: 0 4px 8px rgb(40, 16, 16)">
-                        <img src="images/Buckets/B- AP3 Grease 500g,1kg,5kg.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <center> <h6 class="card-title" style="color:rgb(40, 16, 16)">AP3 All purpose Grease 500g,1Kg,5Kg,18Kg</h6> </center>
-                           
-                        </div>
-                    </div>
-                </div>               
             </div>
+            <button class="arrow right-arrow" onclick="scrollDivs(1)">&#8594;</button>
+        </div></center><br><br>
+        </section>
+        <section id="product">
+        <div><h6 class="head" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 25px;color: #555;margin-left:45%;">Products</h6></div>
+        <br><br>
+        <div class="product-container">
+        <div class="product-card" onclick="openNewWindow(`Gear Oil 5L`)">
+            <img src="Products/Gearoil1.png" alt="Gear Oil1">
+            <h4>Gear Oil 5L</h4>
         </div>
-    </section> 
-                               
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <section id="contact" style="text-align: left;">
-                <h5>Contact us</h5><br>
-                <h6>No 3 West,EVR RD,</h6>
-                <h6>RM Colony, Ashok Nagar,</h6>
-                <h6>DINDIGUL,Tamil Nadu-624001</h6>
-                <h6>India</h6>
-                <h6>Mobile number : 917708858505</h6>
-            </section>
-            <p>&copy; 2025 SV Petro Products. All rights reserved.</p>
-            <p><a href="privacypolicy.html" target="_blank">Privacy Policy</a> | <a href="terms.html" target="_blank">Terms of Service</a></p>
+        <div class="product-card" onclick="openNewWindow(`Gear Oil 20L`)">
+            <img src="Products/Gearoil2.png" alt="Gear Oil2">
+            <h4>Gear Oil 20L</h4>
         </div>
-    </footer>
+        <div class="product-card" onclick="openNewWindow(`4t Plus SAE 20W-40 High Quality Engine Oil 55L`)">
+            <img src="Products/4Tplus1.png" alt="20W-40">
+            <h4>4T Plus SAE 20W-40 High Quality Engine Oil 55L</h4>
+        </div>
+        <div class="product-card" onclick="openNewWindow(`4T Plus 20W-40 4Stroke Engine Oil 1L`)">
+            <img src="Products/4Tplus2.png" alt="20W-40">
+            <h4>4T Plus 20W-40 4Stroke Engine Oil 1ltr</h4>
+        </div>
+        <div class="product-card" onclick="openNewWindow(`SAE 20W-40 High Quality Engine Oil 10L`)">
+            <img src="Products/SAE2.png" alt="4Tplus2">
+            <h4>SAE 20W-40 High Quality Engine Oil 10Ltr</h4>
+        </div>
+        <div class="product-card" onclick="openNewWindow(`SAE 15W-40 High Quality Engine Oil 55L`)">
+            <img src="Products/SAE1.png" alt="15W-40">
+            <h4>SAE 15W-40 High Quality Engine Oil Bucket 55L</h4>
+        </div>
+        <div class="product-card" onclick="openNewWindow(`UTTO WET BRAKE Oil 1L`)">
+            <img src="Products/Tractoroil.png" alt="Tractoroil">
+            <h4>UTTO Wet Brake Oil 1ltr</h4>
+        </div>
+        <div class="product-card" onclick="openNewWindow(`UTTO WET BRAKE Oil 5L`)">
+            <img src="Products/UTTO.png" alt="UTTO">
+            <h4>UTTO Wet Brake Oil 5ltr</h4>
+         </div>
+    </div> </section>
+     <br><br><section id="about">
+   <div><h6 class="head" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 25px;color: #555;margin-left:40%;">About Us</h6></div>
+    <br><br><center><div class="container" style="color:#555;box-shadow: 0 4px 8px #fcecb4;">
+        <br>
+        <img src="VEE_GOLD.jpg"  class="about-img" style="float:right;border-radius: 20px;box-shadow: 0 4px 8px rgb(40, 16, 16);" width="300" height="200">
+        <p  class="about" style="text-align: left;">  <br>  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Since 2016, SV Petro has been dedicated to delivering reliable, high-quality fuel services through our VEE Gold brand, ensuring you stay on the move.
+            With  Decade of experience in the industry, we offer a wide range of products, including premium high quality Engine Oil,Gear Oil and
+            Tractor Transmission oil at competitive prices. Our Brand VEE Gold is designed to ensure a fast, safe and efficient
+            experience for all our customers. In addition to fueling services, we also provide a variety of vehicle store items.
+            Our mission is to offer not just fuel, but also excellent customer service, making each visit a pleasant and hassle-free experience.
+            Whether you’re on the road for work or leisure,Our SV Petro Shop is here to serve your fueling needs with convenience, speed, and care.</p>
+    </div> </center>  </section>  <br><br>
+    <section id="contact"><div><h6 class="head" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 25px;color: #555;margin-left:40%;">Contact Us</h6></div>
+    <br> <div class="container" style="box-shadow: 0 4px 8px #fcecb4;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 24px;color: #555;margin-left: 12%;">
+        <img src="images/addressicon.jpg" style="margin-left:40%;" /><br>   
+        <b><h6 style="margin-left:39%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Address</h6> </b><br>
+                  
+             <h6 style="margin-left:35%;font-size: 14px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">No 3 West,EVR RD,</h6>
+                <h6 style="margin-left:35%;font-size: 14px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">RM Colony, Ashok Nagar,</h6>
+                <h6 style="margin-left:35%;font-size: 14px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">DINDIGUL,Tamil Nadu-624001</h6>
+                <h6 style="margin-left:35%;font-size: 14px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">India</h6> <br>
 
-    <!-- Bootstrap JS -->
-   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script> -->
-   <script>
-   /* function openNewWindow1() {
-        const url = "https://www.facebook.com"; // Replace with your desired URL
-        const width = 800; // Width of the new window
-            const height = 600; // Height of the new window
-        const screenLeft = window.screenLeft || window.screenX;
-            const screenTop = window.screenTop || window.screenY;
-            const screenWidth = window.innerWidth || document.documentElement.clientWidth || screen.width;
-            const screenHeight = window.innerHeight || document.documentElement.clientHeight || screen.height;
+                <img src="images/emailicon.jpg" style="margin-left:40%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"/> <br>
+            <b><h6 style="margin-left:39%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">General Enquiries</h6> </b><br>
+                <h6 style="margin-left:36%;font-size: 16px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">sakthivelpetro@gmail.com</h6>  <br>
+                
+                <img src="images/phoneicon.jpg" style="margin-left:40%;"/> <br>
+                <b><h6 style="margin-left:40%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Call Us</h6></b><br> 
+                <h6 style="margin-left:38%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">917708858505</h6> <br>
+               
+                <img src="images/timeicon.jpg" style="margin-left:40%;" /><br>
+                <b><h6 style="margin-left:40%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Timing</h6></b><br>
+                <h6 style="margin-left:33%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">Mon-Sun: 09:00 AM - 08:00 PM</h6>  <br> 
 
-            // Calculate position for centering
-            const left = screenLeft + (screenWidth - width) / 2;
-            const top = screenTop + (screenHeight - height) / 2;
+        </div> <br><br> </section>
+        <footer class="footer">
+          <center>  <div class="container" style="box-shadow: 0 4px 8px #fcecb4;"> 
+              <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">&copy; 2025 SV Petro Products. All rights reserved.</p>
+              <p><a href="privacypolicy.html" target="_blank" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Privacy Policy</a> | <a href="terms.html" target="_blank" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Terms of Service</a></p>
+          </div> </center>
+          </footer> </div>
 
-            // Open new window
-            const options = `width=${width},height=${height},top=${top},left=${left}`;
-            window.open(url, "_blank", options);
-    } */
-    function openNewWindow(product) {
+</body>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('show');
+          /*  document.querySelector('.hamburger').classList.toggle('active'); */
+       }
+
+       var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+    });
+
+        function scrollDivs(direction) {
+            let container = document.getElementById("scrollContainer");
+            let scrollAmount = 220; // Move 5 divs at a time
+           container.scrollLeft += direction * scrollAmount;
+        }
+
+        function openNewWindow(product) {
         const width = 800; // Width of the new window
             const height = 600; // Height of the new window
         const screenLeft = window.screenLeft || window.screenX;
@@ -476,6 +700,7 @@
            //const newWindow = window.open(`destination.html?name=${encodeURIComponent(name)}&age=${age}`);
            window.open(`product.html?product=${encodeURIComponent(product)}`);
     }
-</script>
+    </script>
+
 </body>
 </html>

@@ -37,6 +37,11 @@
 
         }
 
+        .head{
+            font-size: 25px;
+            margin-left:40%;
+        }
+
         .nav-links {
             list-style: none;
             display: flex;
@@ -125,6 +130,7 @@
             width:400px;
             float:left;
             padding-left: 60px;
+            align-items: center;
         }
         .lubparagraph{
             align-self: center;
@@ -304,7 +310,10 @@
         }
         .about-img{
             margin-left:50px;
-            margin-bottom:20px
+            margin-bottom:20px;
+            float:right;
+            width:300px;
+            height:200px;
         }
 
         /* Responsive Design */
@@ -325,6 +334,14 @@
                 padding: 10px 0;
                 border-radius: 0 0 10px 10px;
             }
+            .navbar .logo img{
+                width:100px;
+            }
+            .navbar .logo {
+            font-size: 25px;
+            font-weight: bold;
+
+        }
 
             .nav-links.show {
                 display: flex;
@@ -353,8 +370,8 @@
             .lubimg{
             height:180px;
             width:180px;
-            align-items: center;
-            margin-top: 25px;
+           align-items: center;
+           margin-top: 25px;
         }
         .lubparagraph{
             align-self: center;
@@ -375,18 +392,18 @@
         }
 
         .swiper-button-next {
-            top: 40%;
+            top: 45%;
             right: 10px;
         }
 
         .swiper-button-prev {
-            top: 40%;
+            top: 45%;
             left: 10px;
         }
 
         .product-container {
             width: 250px;
-            margin-left: 100px;
+            margin-left: 50px;
             grid-template-columns: repeat(2, 1fr); /* 3 Columns */
             gap: 10px; /* Space between items */
             padding: 2px;
@@ -408,7 +425,7 @@
             border-radius: 10px;
         }
         .product-card h4 {
-            margin-left: 10px 2px;;
+            margin-left: 10px 2px;
             color:#555;
             text-align: center;
             height: 35px;
@@ -419,14 +436,19 @@
             font-size:12px
         }
         .about-img{
-            width:230px;
+            float:none;
+            width:220px;
             height:130px;
-            margin-left:30px;
+            margin-left: 2px;
             margin-bottom:10px
         }
         .head{
-            font-size: 10px;
+            font-size: 20px;
+            margin-left: 35%;
         }
+        .footer{
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -440,10 +462,10 @@
             <div></div>
             <div></div>
         </div>
-        <ul class="nav-links">
-            <li><a href="#product"><b>Product </b></a></li>
-            <li><a href="#about"><b>About</b></a></li>
-            <li><a href="#contact"><b>Contact</b></a></li>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#product" onclick="closeMenu()"><b>Product </b></a></li>
+            <li><a href="#about" onclick="closeMenu()"><b>About</b></a></li>
+            <li><a href="#contact" onclick="closeMenu()"><b>Contact</b></a></li>
         </ul>
     </nav>
     <section id="slide">
@@ -470,7 +492,7 @@
     </div><br><br><br>
     </section>
     <section id="sell">
- <div><h6 class="head" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 25px;color: #555;margin-left:40%;">What We Sell</h6></div>
+ <div><h6 class="head" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;color: #555;">What We Sell</h6></div>
     <br><br>
    <center> 
         <div class="container">
@@ -578,7 +600,7 @@
         </div></center><br><br>
         </section>
         <section id="product">
-        <div><h6 class="head" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 25px;color: #555;margin-left:45%;">Products</h6></div>
+        <div><h6 class="head" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;color: #555;">Products</h6></div>
         <br><br>
         <div class="product-container">
         <div class="product-card" onclick="openNewWindow(`Gear Oil 5L`)">
@@ -615,37 +637,37 @@
          </div>
     </div> </section>
      <br><br><section id="about">
-   <div><h6 class="head" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 25px;color: #555;margin-left:40%;">About Us</h6></div>
-    <br><br><center><div class="container" style="color:#555;box-shadow: 0 4px 8px #fcecb4;">
+   <div><h6 class="head" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;color: #555;">About Us</h6></div>
+    <br><center><div class="container" style="color:#555;box-shadow: 0 4px 8px #fcecb4;">
         <br>
-        <img src="VEE_GOLD.jpg"  class="about-img" style="float:right;border-radius: 20px;box-shadow: 0 4px 8px rgb(40, 16, 16);" width="300" height="200">
-        <p  class="about" style="text-align: left;">  <br>  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Since 2016, SV Petro has been dedicated to delivering reliable, high-quality fuel services through our VEE Gold brand, ensuring you stay on the move.
+        <img src="VEE_GOLD.jpg"  class="about-img" style="border-radius: 20px;box-shadow: 0 4px 8px rgb(40, 16, 16);">
+        <p  class="about" style="text-align: left;">  <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Since 2016, SV Petro has been dedicated to delivering reliable, high-quality fuel services through our VEE Gold brand, ensuring you stay on the move.
             With  Decade of experience in the industry, we offer a wide range of products, including premium high quality Engine Oil,Gear Oil and
             Tractor Transmission oil at competitive prices. Our Brand VEE Gold is designed to ensure a fast, safe and efficient
             experience for all our customers. In addition to fueling services, we also provide a variety of vehicle store items.
             Our mission is to offer not just fuel, but also excellent customer service, making each visit a pleasant and hassle-free experience.
             Whether you’re on the road for work or leisure,Our SV Petro Shop is here to serve your fueling needs with convenience, speed, and care.</p>
     </div> </center>  </section>  <br><br>
-    <section id="contact"><div><h6 class="head" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 25px;color: #555;margin-left:40%;">Contact Us</h6></div>
+    <section id="contact"><div><h6 class="head" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;color: #555;">Contact Us</h6></div>
     <br> <div class="container" style="box-shadow: 0 4px 8px #fcecb4;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 24px;color: #555;margin-left: 12%;">
-        <img src="images/addressicon.jpg" style="margin-left:40%;" /><br>   
-        <b><h6 style="margin-left:39%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Address</h6> </b><br>
+        <img src="images/addressicon.jpg" style="margin-left:36%;" /><br>   
+        <b><h6 style="margin-left:35%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Address</h6> </b><br>
                   
-             <h6 style="margin-left:35%;font-size: 14px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">No 3 West,EVR RD,</h6>
-                <h6 style="margin-left:35%;font-size: 14px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">RM Colony, Ashok Nagar,</h6>
-                <h6 style="margin-left:35%;font-size: 14px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">DINDIGUL,Tamil Nadu-624001</h6>
-                <h6 style="margin-left:35%;font-size: 14px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">India</h6> <br>
+             <h6 style="margin-left:33%;font-size: 14px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">No 3 West,EVR RD,</h6>
+                <h6 style="margin-left:33%;font-size: 14px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">RM Colony, Ashok Nagar,</h6>
+                <h6 style="margin-left:33%;font-size: 14px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">DINDIGUL,Tamil Nadu-624001</h6>
+                <h6 style="margin-left:33%;font-size: 14px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">India</h6> <br>
 
-                <img src="images/emailicon.jpg" style="margin-left:40%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"/> <br>
-            <b><h6 style="margin-left:39%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">General Enquiries</h6> </b><br>
-                <h6 style="margin-left:36%;font-size: 16px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">sakthivelpetro@gmail.com</h6>  <br>
+                <img src="images/emailicon.jpg" style="margin-left:36%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"/> <br>
+            <b><h6 style="margin-left:35%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">General Enquiries</h6> </b><br>
+                <h6 style="margin-left:33%;font-size: 16px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">sakthivelpetro@gmail.com</h6>  <br>
                 
-                <img src="images/phoneicon.jpg" style="margin-left:40%;"/> <br>
-                <b><h6 style="margin-left:40%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Call Us</h6></b><br> 
-                <h6 style="margin-left:38%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">917708858505</h6> <br>
+                <img src="images/phoneicon.jpg" style="margin-left:36%;"/> <br>
+                <b><h6 style="margin-left:36%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Call Us</h6></b><br> 
+                <h6 style="margin-left:35%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">917708858505</h6> <br>
                
-                <img src="images/timeicon.jpg" style="margin-left:40%;" /><br>
-                <b><h6 style="margin-left:40%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Timing</h6></b><br>
+                <img src="images/timeicon.jpg" style="margin-left:36%;" /><br>
+                <b><h6 style="margin-left:35%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Timing</h6></b><br>
                 <h6 style="margin-left:33%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: 200;">Mon-Sun: 09:00 AM - 08:00 PM</h6>  <br> 
 
         </div> <br><br> </section>
@@ -655,14 +677,18 @@
               <p><a href="privacypolicy.html" target="_blank" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Privacy Policy</a> | <a href="terms.html" target="_blank" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Terms of Service</a></p>
           </div> </center>
           </footer> </div>
-
 </body>
 
     <script>
+        
         function toggleMenu() {
+            
             document.querySelector('.nav-links').classList.toggle('show');
-          /*  document.querySelector('.hamburger').classList.toggle('active'); */
        }
+       function closeMenu() {
+            document.getElementById("navLinks").classList.remove("show");
+        }
+      
 
        var swiper = new Swiper('.swiper-container', {
         loop: true,

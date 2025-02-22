@@ -37,6 +37,9 @@
             display: block;
             position: relative; 
         }
+        #itemimg{
+            float:left;
+        }
 
         .wrapper {
     display: flex;
@@ -47,7 +50,6 @@
         .footer {
             color: #555;
             background: white;
-           
         }
         
         @media (max-width: 768px) {
@@ -55,6 +57,9 @@
                 font-size:20px;
             }
             #itemimg{
+                float: none;
+                display: block;
+                margin: 0 auto; /* Center the image */
                 width: 250px;
             }
             .container p{
@@ -62,7 +67,7 @@
        margin-left: 50%;
    } 
             #item{
-                margin-left: 80px;
+                margin-left: 25%;
                 font-size: 14px;
             } 
             #itemdescr{
@@ -74,6 +79,10 @@
             }
             .footer{
                 font-size: 14px;
+            }
+            .footercontainer{
+                font-size: 12px;
+                margin-left: 20%;
             }
         }
 
@@ -87,7 +96,7 @@
     </nav><br><br>
     <section>
          <div class="container" style="border: 10px #333;">
-            <img id="itemimg" class="zoom-image" style="float:left;border-radius: 20px;box-shadow: 0 4px 8px #fcecb4;margin-left: 20px;margin-right: 20px;margin-bottom: 10px;" width="300" height="auto">
+            <img id="itemimg" class="zoom-image" style="border-radius: 20px;box-shadow: 0 4px 8px #fcecb4;margin-left: 20px;margin-right: 20px;margin-bottom: 10px;" width="300" height="auto">
            <br> <h3 id="item"></h3> <br>
            <p id="itemdescr" style="text-align:text-justify;"> </p> 
         </div>
@@ -95,12 +104,13 @@
      <br>
       <br>
       <footer class="footer">
-        <center>  <div class="container" style="box-shadow: 0 4px 8px #fcecb4;"> 
+        <center> <div class="footercontainer" style="box-shadow: 0 4px 8px #fcecb4;"> 
             <p>&copy; 2025 SV Petro Products. All rights reserved.</p>
             <p><a href="privacypolicy.html" target="_blank">Privacy Policy</a> | <a href="terms.html" target="_blank">Terms of Service</a></p>
         </div> </center>
-        </footer> </div>
+        </footer></div>
       <br>
+       </div>
 
 
           <script>
